@@ -1,6 +1,14 @@
 # data-envelope
 数据包装器
 
+NPM: https://www.npmjs.com/package/data-envelope
+
+## 安装
+
+    npm i data-envelope
+
+## 初衷
+
 我们可能经常需要这样处理数据
 
     if (result.data.data.data1.code === 0) return false;
@@ -83,7 +91,7 @@
 ## 模组
 
 ### DataEnvelope
-对数据进行简单封装，开放一个方法`pick`来拾取路径值。
+对数据进行简单封装，开放`pick` `inject`来拾取和注入路径值值。
 
 ### picker
 可以安全地拾取对象路径的值。当路径不通或者拾取失败，则返回用户指定的默认值。
@@ -92,7 +100,7 @@
 可以按指定路径，向对象注入值。
 
 ### path-resolver
-解析路径表达式
+解析路径表达式，兼容大部分对象/数组标签取值写法，规则相对要松散一些。
 
     a.b.c => ['a', 'b', 'c']
     a.b[0]["a.b.c"] => ['a', 'b', '0', 'a.b.c']
