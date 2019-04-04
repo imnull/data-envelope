@@ -1,0 +1,24 @@
+{
+  "name": "data-envelope",
+  "version": "1.0.0",
+  "description": "Get data safely",
+  "main": "data-envelope.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imnull/data-envelope.git"
+  },
+  "keywords": [
+    "data",
+    "javascript",
+    "getter"
+  ],
+  "author": "imnull@outlook.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/imnull/data-envelope/issues"
+  },
+  "homepage": "https://github.com/imnull/data-envelope#readme"
+}
