@@ -1,5 +1,7 @@
 const { envelope } = require('./index');
 
+const { inject } = require('./injecter');
+
 
 const test_path = [
     'aaaa.bbb',
@@ -17,11 +19,19 @@ const test_path = [
     'a.c[`a.b`]',
 ];
 
-const picker = envelope({
+const env = envelope({
     a: {
         b: ['a.b.0', 'a.b.1'],
         c: { 'a.b': 'bingo' }
     },
 });
 
-test_path.forEach(path => console.log(path, '===>', picker.pick(path, '##defaultValue##')))
+test_path.forEach(path => console.log(path, '===>', env.pick(path, '##defaultValue##')))
+
+console.log(env.inject('aaaa[0]', 123))
+console.log(env.inject('bbbb.ccc', 123))
+console.log(env.inject(['c', 1], 123))
+console.log(env.inject(['a', 'b', 'c', '0', 'a'], 123))
+console.log(env.data.a.b.c)
+
+console.log(env.data)

@@ -1,5 +1,4 @@
-const invalid = v => typeof(v) === 'undefined' || v === null;
-const BLANK_PATH = [];
+const { invalid } = require('./utils');
 
 /**
  * 从对象中提取路径数据
@@ -23,6 +22,6 @@ const pick = (data, path, defaultValue) => {
             }
         }
     }
-}
+};
 
-module.exports = { invalid, pick, BLANK_PATH };
+module.exports = { pick };

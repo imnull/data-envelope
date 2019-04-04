@@ -1,4 +1,5 @@
-const { pick, BLANK_PATH } = require('./picker');
+const { pick } = require('./picker');
+const { inject } = require('./injecter');
 const pathResolver = require('./path-resolver');
 
 class DataEnvelope {
@@ -11,9 +12,17 @@ class DataEnvelope {
      * @param {String|Array} path 路径
      * @param {Any} defaultValue 默认值
      */
-    pick(path = BLANK_PATH, defaultValue = undefined){
+    pick(path, defaultValue = undefined){
         path = pathResolver(path);
         return pick(this.data, path, defaultValue)
+    }
+
+    inject(path, value){
+        path = pathResolver(path);
+        if(path.length > 0){
+            this.data = inject(this.data, path, value);
+        }
+        return value;
     }
 }
 
