@@ -16,7 +16,8 @@ const pick = (data, path, defaultValue) => {
         } else {
             path = path.slice(0);
             try {
-                return pick(data[path.shift()], path, defaultValue);
+                let key = path.shift();
+                return pick(data[key], path, defaultValue);
             } catch(ex) {
                 return defaultValue;
             }

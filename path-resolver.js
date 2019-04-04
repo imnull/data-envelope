@@ -11,7 +11,6 @@ const read_quote = (s, start) => {
             i += 1;
             continue;
         } else if(c === q) {
-            // console.log(s.substring(start - 1, i), i, start - 1)
             return i;
         }
     }
@@ -85,5 +84,3 @@ const resolve = (path) => {
 }
 
 module.exports = resolve;
-
-// console.log(resolve('aaa.bbb[a.b.c][1.2.3]["2[][][[[[[[[]]]"].ccc'))

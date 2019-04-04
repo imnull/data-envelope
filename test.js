@@ -12,8 +12,16 @@ const test_path = [
     ['a', 'b', '0'],
     ['a', 'b', '5'].join('.'),
     ['a', 'b', '3', 'abc'],
+    'a.c[a.b]',
+    'a.c["a.b"]',
+    'a.c[`a.b`]',
 ];
 
-const picker = envelope({ a: { b: ['a.b.0', 'a.b.1'] } });
+const picker = envelope({
+    a: {
+        b: ['a.b.0', 'a.b.1'],
+        c: { 'a.b': 'bingo' }
+    },
+});
 
 test_path.forEach(path => console.log(path, '===>', picker.pick(path, '##defaultValue##')))
